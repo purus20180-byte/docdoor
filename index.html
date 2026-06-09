@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Divya Tech — DocDoor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet[...]
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     :root {
       --green-dark:   #1e5c38;
@@ -23,9 +23,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
@@ -48,7 +46,7 @@
     .nav-brand img { width: 38px; height: 38px; border-radius: 10px; }
     .nav-brand-text { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--green-dark); letter-spacing: -.3px; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--ink-60); font-size: .9rem; font-weight: 500; transition: color .2s; cursor: pointer; }
+    .nav-links a { text-decoration: none; color: var(--ink-60); font-size: .9rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--green-mid); }
     .nav-cta {
       background: var(--green-mid); color: #fff; border: none;
@@ -57,6 +55,30 @@
       text-decoration: none;
     }
     .nav-cta:hover { background: var(--green-dark); }
+
+    /* ── PAGE VIEWS ── */
+    #main-content { display: block; }
+    #privacy-view { display: none; }
+
+    /* Privacy back bar */
+    .privacy-back-bar {
+      background: var(--green-bg);
+      border-bottom: 1px solid var(--green-pale);
+      padding: 12px 5vw;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--green-dark); font-size: .875rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; background: none; border: none;
+      font-family: inherit; padding: 6px 14px 6px 10px;
+      border-radius: 50px; transition: background .2s;
+    }
+    .back-btn:hover { background: var(--green-pale); }
+    .back-btn svg { flex-shrink: 0; }
+    .privacy-back-bar span { font-size: .8rem; color: var(--ink-60); }
 
     /* ── HERO ── */
     .hero {
@@ -94,35 +116,24 @@
       padding: 14px 30px; border-radius: 50px; font-family: inherit;
       font-weight: 600; font-size: .95rem; cursor: pointer;
       transition: all .2s; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
     }
     .btn-outline:hover { background: var(--green-pale); }
 
     /* hero visual */
-    .hero-visual {
-      display: flex; flex-direction: column; align-items: center; gap: 16px;
-    }
+    .hero-visual { display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .phone-mockup {
       width: 260px; background: var(--ink);
       border-radius: 36px; padding: 16px;
-      box-shadow: 0 30px 80px rgba(30,92,56,.22);
-      position: relative;
+      box-shadow: 0 30px 80px rgba(30,92,56,.22); position: relative;
     }
-    .phone-notch {
-      width: 80px; height: 20px; background: var(--ink);
-      border-radius: 0 0 12px 12px; margin: 0 auto 12px;
-    }
-    .phone-screen {
-      background: var(--white); border-radius: 24px;
-      padding: 20px 16px; overflow: hidden;
-    }
+    .phone-notch { width: 80px; height: 20px; background: var(--ink); border-radius: 0 0 12px 12px; margin: 0 auto 12px; }
+    .phone-screen { background: var(--white); border-radius: 24px; padding: 20px 16px; overflow: hidden; }
     .ps-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
     .ps-logo { width: 34px; height: 34px; border-radius: 9px; }
     .ps-title { font-family: 'DM Serif Display', serif; font-size: .95rem; color: var(--ink); }
     .ps-subtitle { font-size: .65rem; color: var(--ink-60); }
-    .ps-card {
-      background: var(--green-bg); border-radius: 14px;
-      padding: 12px; margin-bottom: 10px;
-    }
+    .ps-card { background: var(--green-bg); border-radius: 14px; padding: 12px; margin-bottom: 10px; }
     .ps-card-label { font-size: .6rem; font-weight: 600; color: var(--green-mid); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
     .ps-card-name { font-size: .85rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
     .ps-card-spec { font-size: .65rem; color: var(--ink-60); }
@@ -130,113 +141,83 @@
     .ps-tag { background: var(--green-pale); color: var(--green-dark); font-size: .55rem; font-weight: 600; padding: 3px 8px; border-radius: 50px; }
     .ps-btn { background: var(--green-mid); color: #fff; font-size: .65rem; font-weight: 700; padding: 6px 14px; border-radius: 50px; text-align: center; margin-top: 4px; }
     .ps-stars { color: #f9a825; font-size: .7rem; }
-
-    /* stats strip */
-    .stats-strip {
-      display: flex; gap: 12px;
-    }
-    .stat-pill {
-      background: var(--white); border: 1px solid var(--green-pale);
-      padding: 10px 18px; border-radius: 50px; text-align: center;
-      box-shadow: var(--shadow);
-    }
+    .stats-strip { display: flex; gap: 12px; }
+    .stat-pill { background: var(--white); border: 1px solid var(--green-pale); padding: 10px 18px; border-radius: 50px; text-align: center; box-shadow: var(--shadow); }
     .stat-num { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--green-mid); display: block; }
     .stat-lbl { font-size: .65rem; color: var(--ink-60); font-weight: 500; }
 
     /* ── PRODUCT SECTION ── */
     .section { padding: 80px 5vw; max-width: 1200px; margin: 0 auto; }
-    .section-label {
-      font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--green-mid); margin-bottom: 10px;
-    }
-    .section h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.9rem, 3vw, 2.8rem);
-      line-height: 1.15; color: var(--ink); letter-spacing: -.02em;
-      margin-bottom: 16px; max-width: 560px;
-    }
+    .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 10px; }
+    .section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 3vw, 2.8rem); line-height: 1.15; color: var(--ink); letter-spacing: -.02em; margin-bottom: 16px; max-width: 560px; }
     .section h2 em { color: var(--green-mid); font-style: italic; }
     .section > p { color: var(--ink-60); max-width: 540px; font-weight: 300; font-size: 1.05rem; margin-bottom: 48px; }
-
-    /* features grid */
-    .features-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
-    }
-    .feat-card {
-      background: var(--white); border-radius: var(--radius);
-      padding: 28px; border: 1px solid var(--green-pale);
-      transition: box-shadow .2s, transform .15s;
-    }
+    .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .feat-card { background: var(--white); border-radius: var(--radius); padding: 28px; border: 1px solid var(--green-pale); transition: box-shadow .2s, transform .15s; }
     .feat-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .feat-icon {
-      width: 48px; height: 48px; border-radius: 14px;
-      background: var(--green-pale); display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 16px;
-    }
+    .feat-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
     .feat-card h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
     .feat-card p { font-size: .875rem; color: var(--ink-60); font-weight: 300; line-height: 1.6; }
 
     /* roles section */
-    .roles-section {
-      background: var(--ink); padding: 80px 5vw; margin: 40px 0;
-    }
+    .roles-section { background: var(--ink); padding: 80px 5vw; margin: 40px 0; }
     .roles-inner { max-width: 1200px; margin: 0 auto; }
     .roles-section .section-label { color: var(--green-light); }
     .roles-section h2 { color: var(--white); max-width: 580px; }
     .roles-section h2 em { color: var(--green-light); }
-    .roles-section > .roles-inner > p { color: var(--ink-30); }
-    .roles-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px;
-    }
-    .role-card {
-      border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius);
-      padding: 28px; background: rgba(255,255,255,.04);
-      transition: background .2s;
-    }
+    .roles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+    .role-card { border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 28px; background: rgba(255,255,255,.04); transition: background .2s; }
     .role-card:hover { background: rgba(255,255,255,.08); }
-    .role-badge {
-      display: inline-block; font-size: .7rem; font-weight: 700;
-      letter-spacing: .06em; text-transform: uppercase;
-      padding: 4px 12px; border-radius: 50px; margin-bottom: 14px;
-    }
+    .role-badge { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 14px; }
     .badge-patient { background: rgba(62,158,104,.2); color: #6fcf97; }
     .badge-doctor { background: rgba(45,122,79,.2); color: #a8e6c0; }
     .badge-hospital { background: rgba(30,92,56,.2); color: #c8f0da; }
     .role-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
     .role-card ul { list-style: none; padding: 0; }
-    .role-card ul li {
-      font-size: .85rem; color: var(--ink-30); padding: 5px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      display: flex; align-items: flex-start; gap: 8px;
-    }
+    .role-card ul li { font-size: .85rem; color: var(--ink-30); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.06); display: flex; align-items: flex-start; gap: 8px; }
     .role-card ul li:last-child { border-bottom: none; }
     .role-card ul li::before { content: '→'; color: var(--green-light); flex-shrink: 0; }
 
     /* how it works */
     .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 48px; position: relative; }
-    .steps::before {
-      content: ''; position: absolute; top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
-      height: 1.5px; background: var(--green-pale); z-index: 0;
-    }
+    .steps::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px); height: 1.5px; background: var(--green-pale); z-index: 0; }
     .step { text-align: center; position: relative; z-index: 1; }
-    .step-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--green-mid); color: #fff;
-      font-family: 'DM Serif Display', serif; font-size: 1.3rem;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px; box-shadow: 0 4px 16px rgba(45,122,79,.3);
-    }
+    .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--green-mid); color: #fff; font-family: 'DM Serif Display', serif; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 4px 16px rgba(45,122,79,.3); }
     .step h4 { font-size: .9rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
     .step p { font-size: .8rem; color: var(--ink-60); }
 
     /* trust band */
-    .trust-band {
-      background: var(--green-bg); border-top: 1px solid var(--green-pale); border-bottom: 1px solid var(--green-pale);
-      padding: 40px 5vw;
-    }
+    .trust-band { background: var(--green-bg); border-top: 1px solid var(--green-pale); border-bottom: 1px solid var(--green-pale); padding: 40px 5vw; }
     .trust-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; justify-content: center; }
     .trust-item { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: var(--ink-60); font-weight: 500; }
     .trust-icon { font-size: 1.2rem; }
+
+    /* ── PRIVACY POLICY ── */
+    #privacy-view { background: var(--cream); }
+    .privacy-inner { max-width: 860px; margin: 0 auto; padding: 60px 5vw 80px; }
+    .privacy-inner .section-label { color: var(--green-mid); }
+    .privacy-inner > h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); color: var(--ink); letter-spacing: -.02em; margin-bottom: 8px; }
+    .privacy-inner > .privacy-dates { font-size: .8rem; color: var(--ink-60); margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--green-pale); }
+    .pp-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--green-pale); padding: 32px; margin-bottom: 20px; }
+    .pp-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .pp-card h3 .pp-icon { font-size: 1.2rem; }
+    .pp-card h4 { font-size: .875rem; font-weight: 700; color: var(--ink); margin: 18px 0 8px; }
+    .pp-card p { font-size: .9rem; color: var(--ink-60); margin-bottom: 10px; line-height: 1.7; }
+    .pp-card ul { padding-left: 18px; margin-bottom: 10px; }
+    .pp-card ul li { font-size: .875rem; color: var(--ink-60); margin-bottom: 6px; line-height: 1.6; }
+    .pp-card ul li strong { color: var(--ink); }
+    .note-box { background: var(--green-bg); border-left: 3px solid var(--green-mid); border-radius: 8px; padding: 12px 16px; font-size: .85rem; color: var(--ink-60); margin-top: 14px; }
+    .role-tag { font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; }
+    .role-all { background: #e8f5ee; color: var(--green-dark); }
+    .role-patient { background: #e3f4f9; color: #1a6a8a; }
+    .role-doctor { background: #f5e8ff; color: #6a1a9a; }
+    .role-hospital { background: #fff4e3; color: #8a5c1a; }
+    .contact-box { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%); border-radius: var(--radius); padding: 40px; text-align: center; margin-top: 32px; }
+    .contact-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 10px; }
+    .contact-box p { color: rgba(255,255,255,.75); font-size: .9rem; margin-bottom: 4px; }
+    .contact-box a { color: #a8e6c0; font-weight: 600; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-detail { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; align-items: center; }
 
     /* ── ABOUT / COMPANY ── */
     .about-section { background: var(--green-dark); padding: 80px 5vw; }
@@ -251,157 +232,22 @@
     .about-item-text strong { display: block; color: #fff; font-size: .875rem; margin-bottom: 2px; }
     .about-item-text span { font-size: .8rem; color: rgba(255,255,255,.6); }
 
-    /* ── MODAL ── */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,.5);
-      z-index: 1000;
-      overflow-y: auto;
-    }
-    .modal.active {
-      display: block;
-    }
-    .modal-content {
-      background: var(--cream);
-      border-radius: var(--radius);
-      padding: 40px;
-      max-width: 900px;
-      width: 100%;
-      margin: 40px auto;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--green-mid);
-      color: #fff;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background .2s;
-    }
-    .modal-close:hover {
-      background: var(--green-dark);
-    }
-
-    /* ── PRIVACY POLICY ── */
-    .privacy-inner { }
-    .privacy-inner .section-label { color: var(--green-mid); }
-    .privacy-inner > h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 2.8vw, 2.4rem);
-      color: var(--ink);
-      letter-spacing: -.02em;
-      margin-bottom: 8px;
-    }
-    .privacy-inner > .privacy-dates {
-      font-size: .8rem;
-      color: var(--ink-60);
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--green-pale);
-    }
-    .pp-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--green-pale);
-      padding: 32px;
-      margin-bottom: 20px;
-    }
-    .pp-card h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--ink);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .pp-card h3 .pp-icon { font-size: 1.2rem; }
-    .pp-card h4 { font-size: .875rem; font-weight: 700; color: var(--ink); margin: 18px 0 8px; }
-    .pp-card p { font-size: .9rem; color: var(--ink-60); margin-bottom: 10px; line-height: 1.7; }
-    .pp-card ul { padding-left: 18px; margin-bottom: 10px; }
-    .pp-card ul li { font-size: .875rem; color: var(--ink-60); margin-bottom: 6px; line-height: 1.6; }
-    .pp-card ul li strong { color: var(--ink); }
-    .note-box {
-      background: var(--green-bg);
-      border-left: 3px solid var(--green-mid);
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: .85rem;
-      color: var(--ink-60);
-      margin-top: 14px;
-    }
-    .role-tag {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 50px;
-    }
-    .role-all { background: #e8f5ee; color: var(--green-dark); }
-    .role-patient { background: #e3f4f9; color: #1a6a8a; }
-    .role-doctor { background: #f5e8ff; color: #6a1a9a; }
-    .role-hospital { background: #fff4e3; color: #8a5c1a; }
-
-    /* contact box */
-    .contact-box {
-      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
-      border-radius: var(--radius);
-      padding: 40px;
-      text-align: center;
-      margin-top: 32px;
-    }
-    .contact-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 10px; }
-    .contact-box p { color: rgba(255,255,255,.75); font-size: .9rem; margin-bottom: 4px; }
-    .contact-box a { color: #a8e6c0; font-weight: 600; text-decoration: none; }
-    .contact-box a:hover { text-decoration: underline; }
-    .contact-detail { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; align-items: center; }
-
     /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: rgba(255,255,255,.5);
-      padding: 32px 5vw;
-      text-align: center;
-      font-size: .8rem;
-    }
-    footer a {
-      color: var(--green-light);
-      text-decoration: none;
-      cursor: pointer;
-    }
+    footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 32px 5vw; text-align: center; font-size: .8rem; }
+    footer a { color: var(--green-light); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-content > * {
-      opacity: 0;
-      animation: fadeUp .6s ease forwards;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-content > * { opacity: 0; animation: fadeUp .6s ease forwards; }
     .hero-content > *:nth-child(1) { animation-delay: .05s; }
     .hero-content > *:nth-child(2) { animation-delay: .15s; }
     .hero-content > *:nth-child(3) { animation-delay: .25s; }
     .hero-content > *:nth-child(4) { animation-delay: .35s; }
     .hero-visual { opacity: 0; animation: fadeUp .7s .2s ease forwards; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    #privacy-view.visible { animation: fadeIn .25s ease forwards; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -415,8 +261,6 @@
     }
     @media (max-width: 600px) {
       .stats-strip { flex-direction: column; align-items: flex-start; }
-      .modal-content { padding: 30px 20px; margin: 20px auto; }
-      .modal-close { width: 36px; height: 36px; font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -424,453 +268,477 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand">
+  <a href="#" class="nav-brand" onclick="showMain(event)">
     <img src="ic_launcher.png" alt="DocDoor Logo">
     <span class="nav-brand-text">DocDoor</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#product">Product</a></li>
-    <li><a href="#how-it-works">How it Works</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a onclick="openPrivacyModal()" style="cursor: pointer;">Privacy Policy</a></li>
+    <li><a href="#product" onclick="showMain(event, '#product')">Product</a></li>
+    <li><a href="#how-it-works" onclick="showMain(event, '#how-it-works')">How it Works</a></li>
+    <li><a href="#about" onclick="showMain(event, '#about')">About</a></li>
+    <li><a href="#" onclick="showPrivacy(event)">Privacy Policy</a></li>
   </ul>
   <a href="mailto:info@divyatechsolutions.in" class="nav-cta">Get in Touch</a>
 </nav>
 
-<!-- HERO -->
-<section>
-  <div class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow"><span></span>Now Available · India</div>
-      <h1>Smarter doctor appointments, <em>effortlessly</em></h1>
-      <p>DocDoor connects patients with verified doctors and hospitals — booking, reminders, and follow-ups, all in one seamless app.</p>
-      <div class="hero-actions">
-        <a href="mailto:info@divyatechsolutions.in" class="btn-primary">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8A19.[...]
-          Contact Us
-        </a>
-        <a onclick="openPrivacyModal()" class="btn-outline" style="cursor: pointer;">Privacy Policy</a>
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════ -->
+<div id="main-content">
+
+  <!-- HERO -->
+  <section>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span></span>Now Available · India</div>
+        <h1>Smarter doctor appointments, <em>effortlessly</em></h1>
+        <p>DocDoor connects patients with verified doctors and hospitals — booking, reminders, and follow-ups, all in one seamless app.</p>
+        <div class="hero-actions">
+          <a href="mailto:info@divyatechsolutions.in" class="btn-primary">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8A19.79 19.79 0 0110.8 3.07a2 2 0 012 2.18v3l7 7"/></svg>
+            Contact Us
+          </a>
+          <button class="btn-outline" onclick="showPrivacy(event)">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Privacy Policy
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="phone-mockup">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <div class="ps-header">
-            <img class="ps-logo" src="ic_launcher.png" alt="DocDoor Logo">
-            <div>
-              <div class="ps-title">DocDoor</div>
-              <div class="ps-subtitle">Find Doctors Near You</div>
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ps-header">
+              <img class="ps-logo" src="ic_launcher.png" alt="DocDoor Logo">
+              <div>
+                <div class="ps-title">DocDoor</div>
+                <div class="ps-subtitle">Find Doctors Near You</div>
+              </div>
+            </div>
+            <div class="ps-card">
+              <div class="ps-card-label">Top Doctor</div>
+              <div class="ps-card-name">Dr. Meera Krishnan</div>
+              <div class="ps-card-spec">General Medicine · 14 yrs exp</div>
+              <div class="ps-card-meta">
+                <span class="ps-tag">✓ Verified</span>
+                <span class="ps-tag">Chennai</span>
+              </div>
+              <div class="ps-stars">★★★★★</div>
+              <div class="ps-btn">Book Appointment</div>
+            </div>
+            <div class="ps-card">
+              <div class="ps-card-label">Available Today</div>
+              <div class="ps-card-name">Dr. Arun Sharma</div>
+              <div class="ps-card-spec">Cardiologist · 20 yrs exp</div>
+              <div class="ps-card-meta">
+                <span class="ps-tag">✓ Verified</span>
+                <span class="ps-tag">Tinsukia</span>
+              </div>
+              <div class="ps-stars">★★★★☆</div>
+              <div class="ps-btn">Book Appointment</div>
             </div>
           </div>
-          <div class="ps-card">
-            <div class="ps-card-label">Top Doctor</div>
-            <div class="ps-card-name">Dr. Meera Krishnan</div>
-            <div class="ps-card-spec">General Medicine · 14 yrs exp</div>
-            <div class="ps-card-meta">
-              <span class="ps-tag">✓ Verified</span>
-              <span class="ps-tag">Chennai</span>
-            </div>
-            <div class="ps-stars">★★★★★</div>
-            <div class="ps-btn">Book Appointment</div>
+        </div>
+        <div class="stats-strip">
+          <div class="stat-pill"><span class="stat-num">3+</span><span class="stat-lbl">Roles Supported</span></div>
+          <div class="stat-pill"><span class="stat-num">100%</span><span class="stat-lbl">Verified Doctors</span></div>
+          <div class="stat-pill"><span class="stat-num">24/7</span><span class="stat-lbl">Booking</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <div class="trust-band">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">🔒</span> TLS 1.2+ Encrypted</div>
+      <div class="trust-item"><span class="trust-icon">✅</span> Aadhaar-Verified Doctors</div>
+      <div class="trust-item"><span class="trust-icon">📲</span> SMS, Email &amp; Push Alerts</div>
+      <div class="trust-item"><span class="trust-icon">🏥</span> Hospitals &amp; Clinics</div>
+      <div class="trust-item"><span class="trust-icon">🇮🇳</span> Built for India</div>
+    </div>
+  </div>
+
+  <!-- PRODUCT FEATURES -->
+  <section class="section" id="product">
+    <div class="section-label">Why DocDoor</div>
+    <h2>Everything you need for <em>seamless</em> healthcare access</h2>
+    <p>From discovery to appointment and follow-up — DocDoor makes the entire healthcare journey smooth for patients, doctors, and hospitals alike.</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🔍</div>
+        <h3>Discover Verified Doctors</h3>
+        <p>Find doctors by specialisation, location, language, and availability. Every doctor is Aadhaar and council-verified before listing.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📅</div>
+        <h3>Instant Appointment Booking</h3>
+        <p>Book in seconds, receive confirmations via SMS, email, and push. Reschedule or cancel with clear policies.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏥</div>
+        <h3>Hospital Integration</h3>
+        <p>Hospitals manage their doctor rosters, slot capacities, walk-ins, and payments all from one admin dashboard.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⭐</div>
+        <h3>Ratings &amp; Reviews</h3>
+        <p>Patients leave verified reviews post-appointment, helping the community choose confidently.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔔</div>
+        <h3>Smart Reminders</h3>
+        <p>Automated reminders reduce no-shows. Doctors and hospitals see real-time updates to their schedules.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🛡️</div>
+        <h3>Privacy First</h3>
+        <p>No medical records collected. Data encrypted at rest with AES-256 and in transit with TLS 1.2+.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <div class="roles-section">
+    <div class="roles-inner">
+      <div class="section-label">Platform Roles</div>
+      <h2>One platform, three powerful <em>perspectives</em></h2>
+      <p style="color:rgba(255,255,255,.6);font-weight:300;font-size:1.05rem;margin-bottom:0;">DocDoor serves patients, doctors, and hospital admins with tailored workflows and permissions.</p>
+      <div class="roles-grid">
+        <div class="role-card">
+          <span class="role-badge badge-patient">Patient</span>
+          <h3>Find &amp; Book Care</h3>
+          <ul>
+            <li>Search doctors by spec &amp; location</li>
+            <li>Book, reschedule, or cancel</li>
+            <li>Receive smart reminders</li>
+            <li>Leave reviews &amp; ratings</li>
+            <li>Bookmark favourite doctors</li>
+            <li>View full appointment history</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <span class="role-badge badge-doctor">Doctor</span>
+          <h3>Manage Your Practice</h3>
+          <ul>
+            <li>Aadhaar + council verified profile</li>
+            <li>Set availability &amp; slot limits</li>
+            <li>View patient bookings live</li>
+            <li>Work solo or within hospitals</li>
+            <li>Urgent &amp; follow-up booking flags</li>
+            <li>Aggregated ratings dashboard</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <span class="role-badge badge-hospital">Hospital Admin</span>
+          <h3>Operate at Scale</h3>
+          <ul>
+            <li>Hospital profile &amp; verification</li>
+            <li>Invite &amp; manage doctors</li>
+            <li>Slot capacity &amp; scheduling</li>
+            <li>Payments &amp; refund tracking</li>
+            <li>Walk-in &amp; prescription records</li>
+            <li>Audit logs &amp; admin actions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="section-label">How It Works</div>
+    <h2>From registration to appointment in <em>minutes</em></h2>
+    <p>Getting started with DocDoor is designed to be friction-free for everyone on the platform.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Create Your Account</h4>
+        <p>Sign up as a patient, doctor, or hospital admin. Verify your mobile and email to get started.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Complete Verification</h4>
+        <p>Doctors complete Aadhaar and council verification. Hospitals submit registration details for review.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Find &amp; Connect</h4>
+        <p>Patients search by location, specialisation, or availability and view verified doctor profiles.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Book &amp; Attend</h4>
+        <p>Confirm the slot, receive reminders, attend your appointment, and leave a review afterward.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="about-section" id="about">
+    <div class="about-inner">
+      <div>
+        <div class="section-label">About Divya Tech</div>
+        <h2>IT solutions for <em>everyday life</em></h2>
+        <p>Divya Tech is a technology company focused on building practical, accessible software that solves real challenges people face every day in India.</p>
+        <p>DocDoor is our flagship product — a doctor appointment booking platform designed from the ground up for Indian patients, doctors, and hospitals, with a focus on verification, privacy, and ease of use.</p>
+      </div>
+      <div class="about-details">
+        <div class="about-item">
+          <div class="about-item-icon">📍</div>
+          <div class="about-item-text">
+            <strong>Address</strong>
+            <span>1 No Chota Hapjan, Makum, Tinsukia, Assam</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-card-label">Available Today</div>
-            <div class="ps-card-name">Dr. Arun Sharma</div>
-            <div class="ps-card-spec">Cardiologist · 20 yrs exp</div>
-            <div class="ps-card-meta">
-              <span class="ps-tag">✓ Verified</span>
-              <span class="ps-tag">Tinsukia</span>
-            </div>
-            <div class="ps-stars">★★★★☆</div>
-            <div class="ps-btn">Book Appointment</div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">✉️</div>
+          <div class="about-item-text">
+            <strong>Email</strong>
+            <span><a href="mailto:info@divyatechsolutions.in" style="color:var(--green-light);">info@divyatechsolutions.in</a></span>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">📞</div>
+          <div class="about-item-text">
+            <strong>Phone</strong>
+            <span><a href="tel:+918011861495" style="color:var(--green-light);">+91 80118 61495</a></span>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">🌐</div>
+          <div class="about-item-text">
+            <strong>Website</strong>
+            <span><a href="https://divyatechsolutions.in" style="color:var(--green-light);">divyatechsolutions.in</a></span>
           </div>
         </div>
       </div>
-      <div class="stats-strip">
-        <div class="stat-pill"><span class="stat-num">3+</span><span class="stat-lbl">Roles Supported</span></div>
-        <div class="stat-pill"><span class="stat-num">100%</span><span class="stat-lbl">Verified Doctors</span></div>
-        <div class="stat-pill"><span class="stat-num">24/7</span><span class="stat-lbl">Booking</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <strong>Divya Tech</strong>. All rights reserved. &nbsp;·&nbsp; DocDoor v1.1 &nbsp;·&nbsp;
+      <a href="mailto:info@divyatechsolutions.in">info@divyatechsolutions.in</a> &nbsp;·&nbsp;
+      <a href="tel:+918011861495">+91 80118 61495</a> &nbsp;·&nbsp;
+      <a href="#" onclick="showPrivacy(event)">Privacy Policy</a>
+    </p>
+  </footer>
+
+</div><!-- /#main-content -->
+
+
+<!-- ══════════════════════════════════════════
+     PRIVACY POLICY VIEW (hidden by default)
+═══════════════════════════════════════════ -->
+<div id="privacy-view">
+
+  <!-- back bar -->
+  <div class="privacy-back-bar">
+    <button class="back-btn" onclick="showMain(event)">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to DocDoor
+    </button>
+    <span>/ Privacy Policy</span>
+  </div>
+
+  <div class="privacy-inner">
+    <div class="section-label">Legal</div>
+    <h2>Privacy Policy — DocDoor</h2>
+    <div class="privacy-dates">Effective Date: May 21, 2025 &nbsp;·&nbsp; Last Updated: May 21, 2026 &nbsp;·&nbsp; Operated by <strong>Divya Tech</strong></div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">📋</span> Introduction</h3>
+      <p>Welcome to <strong>DocDoor</strong>, operated by <strong>Divya Tech</strong>. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and services.</p>
+      <p>By using DocDoor, you agree to the collection and use of information as described in this policy. If you do not agree, please discontinue use of the app.</p>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">🗂️</span> 1. Information We Collect</h3>
+      <p>The information we collect depends on the role you use the app as.</p>
+      <h4><span class="role-tag role-all">All Users</span></h4>
+      <ul>
+        <li><strong>Full name, mobile number</strong> (primary login ID), and <strong>email address</strong></li>
+        <li><strong>Profile picture</strong> — optional, only if you choose to upload one</li>
+        <li><strong>State and district</strong> of residence; account status flags</li>
+        <li><strong>Device and login information</strong> — device type, OS version, login timestamps</li>
+        <li><strong>App usage data</strong> — screens visited, features used (for support and debugging)</li>
+        <li><strong>Push notification device token</strong> — for appointment and system alerts</li>
+        <li><strong>Aadhaar verification status</strong> — we only store a yes/no flag. Your Aadhaar number and images are processed by the UIDAI-verified provider and discarded by us.</li>
+      </ul>
+      <div class="note-box">We do <strong>not</strong> collect medical records, diagnoses, prescriptions, or any clinical health data.</div>
+
+      <h4><span class="role-tag role-patient">Patient</span></h4>
+      <ul>
+        <li>Appointment history (dates, times, assigned doctor or hospital, status, your notes)</li>
+        <li>Reviews and ratings you leave for doctors or hospitals</li>
+        <li>Bookmarks (doctors / hospitals you save for later)</li>
+        <li>Identity verification state (mobile OTP, email verification)</li>
+        <li>No-show / cancellation history (used for the freeze-on-repeat-no-show policy)</li>
+      </ul>
+
+      <h4><span class="role-tag role-doctor">Doctor</span></h4>
+      <ul>
+        <li>Medical council licence / registration number; specialisation; qualifications; years of experience; bio; languages spoken</li>
+        <li>Practice location: state, district, subdivision, clinic or hospital name, full address, consultation fee, working days and hours</li>
+        <li>Aadhaar QR code image (name and date of birth confirmation; stored for audit); medical council registration certificate; matching flags</li>
+        <li>Availability slots, daily slots, follow-up slots, urgent-booking flags</li>
+        <li>Appointments booked with you (patient name, phone, date/time, status, notes, review)</li>
+        <li>Aggregated statistics (average rating, total reviews, total appointments, verification badge)</li>
+      </ul>
+
+      <h4><span class="role-tag role-hospital">Hospital Admin</span></h4>
+      <ul>
+        <li>Hospital profile: name, description, phone, email, logo, full address, state, district, pincode, latitude/longitude, verification status</li>
+        <li>Hospital–doctor associations: invitations sent, per-doctor consultation fee overrides</li>
+        <li>Hospital availability: day-wise and date-range availability, slot duration, capacity, booking counts</li>
+        <li>Patient appointments, prescriptions, payments (amount, status, gateway, transaction ID, refund details), walk-in reservations</li>
+        <li>Aggregated hospital statistics and admin/impersonation logs</li>
+      </ul>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">⚙️</span> 2. Why We Collect It</h3>
+      <ul>
+        <li>Account creation, authentication, and role-based access control</li>
+        <li>Identity validation (mobile OTP, email verification, Aadhaar-based verification for doctors)</li>
+        <li>Helping patients find and book the right doctor or hospital</li>
+        <li>Appointment booking, management, reminders (SMS, email, push), and follow-ups</li>
+        <li>Processing payments, refunds, and consultation fees</li>
+        <li>Detecting fraud, abuse, and repeat no-shows</li>
+        <li>Customer and technical support</li>
+        <li>Internal analytics in aggregate form to improve the service</li>
+      </ul>
+      <div class="note-box">Your data is <strong>never</strong> used for advertising, behavioural profiling, or any commercial purpose unrelated to this service.</div>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">🔒</span> 3. How We Protect It</h3>
+      <ul>
+        <li>All data in transit is encrypted using <strong>TLS 1.2 or higher</strong></li>
+        <li>Data at rest is protected with <strong>AES-256 encryption</strong></li>
+        <li>Passwords are hashed using <strong>bcrypt with a unique salt</strong> — never stored in plain text</li>
+        <li>Access to authentication records is restricted to role-authorised internal services only</li>
+        <li>Identity verification images are stored encrypted and accessible only to the verification workflow and authorised reviewers</li>
+        <li>Regular security audits and vulnerability assessments are performed</li>
+      </ul>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">🤝</span> 4. Who We Share It With</h3>
+      <h4><span class="role-tag role-all">All Users</span></h4>
+      <ul>
+        <li><strong>SMS / email / push notification providers</strong> — receive your phone number, email, or device token solely to deliver alerts on our behalf</li>
+        <li><strong>Encrypted cloud infrastructure</strong> — data is stored in secure, encrypted cloud environments</li>
+      </ul>
+      <h4><span class="role-tag role-patient">Patient</span></h4>
+      <ul>
+        <li><strong>Your assigned doctor or hospital</strong> — receives your appointment details</li>
+        <li><strong>Other patients (anonymously)</strong> — see only anonymised statistics on doctor/hospital profiles</li>
+      </ul>
+      <h4><span class="role-tag role-doctor">Doctor</span></h4>
+      <ul>
+        <li><strong>Patients searching</strong> — see your public profile: name, specialisation, qualifications, languages, fee, working hours, average rating</li>
+        <li><strong>Hospital admin you associate with</strong> — sees your professional details and availability</li>
+      </ul>
+      <h4><span class="role-tag role-hospital">Hospital Admin</span></h4>
+      <ul>
+        <li><strong>Patients searching</strong> — see your public hospital profile: name, description, logo, address, verification status, associated doctors</li>
+        <li><strong>Doctors you invite</strong> — see your invitation notes and hospital name</li>
+      </ul>
+      <div class="note-box">We <strong>never</strong> sell, rent, trade, or otherwise disclose your personal data to any third party for their own purposes.</div>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">✅</span> 5. Your Rights</h3>
+      <ul>
+        <li><strong>View</strong> — request a copy of the data we hold about you</li>
+        <li><strong>Correct</strong> — request correction of inaccurate or incomplete data</li>
+        <li><strong>Export</strong> — receive your data in a portable format</li>
+        <li><strong>Freeze</strong> — your account may be temporarily frozen if repeated no-shows are detected. Strike history is tied to your phone number and persists across account deletion.</li>
+        <li><strong>Delete</strong> — request deletion of your account. Re-registration with the same credentials is restricted for <strong>30 days</strong>. Personally identifying details are removed.</li>
+      </ul>
+      <div class="note-box">For <strong>doctors and hospital admins</strong>, deleting your account does not automatically remove appointment, prescription, payment, or review records you created — those remain for legal and audit purposes, tied to "Deleted User".</div>
+      <p style="margin-top:16px;">To exercise any of these rights, go to <strong>Settings → Privacy</strong> in the app, or contact us at <a href="mailto:support.docdoor@gmail.com">support.docdoor@gmail.com</a>.</p>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">🗓️</span> 6. Retention</h3>
+      <ul>
+        <li>Future appointments are cancelled immediately upon account deletion; the account is deactivated</li>
+        <li>Personally identifying information is permanently erased within <strong>30 days</strong> of deletion</li>
+        <li>Appointment history visible to the other party is retained as <em>"Deleted User"</em> after 30 days</li>
+        <li>Review ratings are retained anonymously; review comments are removed after <strong>30 days</strong></li>
+        <li>Prescriptions, payment records, and audit logs are retained for up to <strong>7 years</strong> as required by financial and medical regulations, with personal identifiers removed after 30 days</li>
+        <li>System and access logs are purged after <strong>12 months</strong></li>
+      </ul>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">🔗</span> Third-Party Services</h3>
+      <ul>
+        <li><strong>Firebase Cloud Messaging (Google)</strong> — for push notifications</li>
+        <li><strong>SMS / email notification providers</strong> — for appointment reminders</li>
+        <li><strong>UIDAI-verified Aadhaar provider</strong> — for identity verification (doctors only); Aadhaar numbers and images are processed by the provider and discarded by us</li>
+        <li><strong>Encrypted cloud infrastructure</strong> — for secure data storage</li>
+        <li><strong>Google Play Services</strong> — for app distribution and device authentication</li>
+      </ul>
+      <p>We encourage you to review the privacy policies of these services. DocDoor is not responsible for the data practices of third-party providers.</p>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">👶</span> Children's Privacy</h3>
+      <p>DocDoor is not intended for use by individuals under the age of <strong>13</strong>. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately at <a href="mailto:support.docdoor@gmail.com">support.docdoor@gmail.com</a>.</p>
+    </div>
+
+    <div class="pp-card">
+      <h3><span class="pp-icon">🔄</span> Changes to This Policy</h3>
+      <p>We may update this Privacy Policy from time to time. When we do, we will update the <strong>Last Updated</strong> date at the top of this page. Continued use of DocDoor after changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>✉️ Contact Us</h3>
+      <p>Have questions about this Privacy Policy or your data? Reach out to us.</p>
+      <div class="contact-detail">
+        <p><strong>Divya Tech</strong></p>
+        <p>1 No Chota Hapjan, Makum, Tinsukia</p>
+        <p><a href="mailto:support.docdoor@gmail.com">support.docdoor@gmail.com</a></p>
+        <p><a href="mailto:info@divyatechsolutions.in">info@divyatechsolutions.in</a></p>
+        <p><a href="tel:+918011861495">+91 80118 61495</a></p>
       </div>
     </div>
   </div>
-</section>
 
-<!-- TRUST BAND -->
-<div class="trust-band">
-  <div class="trust-inner">
-    <div class="trust-item"><span class="trust-icon">🔒</span> TLS 1.2+ Encrypted</div>
-    <div class="trust-item"><span class="trust-icon">✅</span> Aadhaar-Verified Doctors</div>
-    <div class="trust-item"><span class="trust-icon">📲</span> SMS, Email & Push Alerts</div>
-    <div class="trust-item"><span class="trust-icon">🏥</span> Hospitals & Clinics</div>
-    <div class="trust-item"><span class="trust-icon">🇮🇳</span> Built for India</div>
-  </div>
-</div>
+</div><!-- /#privacy-view -->
 
-<!-- PRODUCT FEATURES -->
-<section class="section" id="product">
-  <div class="section-label">Why DocDoor</div>
-  <h2>Everything you need for <em>seamless</em> healthcare access</h2>
-  <p>From discovery to appointment and follow-up — DocDoor makes the entire healthcare journey smooth for patients, doctors, and hospitals alike.</p>
-  <div class="features-grid">
-    <div class="feat-card">
-      <div class="feat-icon">🔍</div>
-      <h3>Discover Verified Doctors</h3>
-      <p>Find doctors by specialisation, location, language, and availability. Every doctor is Aadhaar and council-verified before listing.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">📅</div>
-      <h3>Instant Appointment Booking</h3>
-      <p>Book in seconds, receive confirmations via SMS, email, and push. Reschedule or cancel with clear policies.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">🏥</div>
-      <h3>Hospital Integration</h3>
-      <p>Hospitals manage their doctor rosters, slot capacities, walk-ins, and payments all from one admin dashboard.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">⭐</div>
-      <h3>Ratings & Reviews</h3>
-      <p>Patients leave verified reviews post-appointment, helping the community choose confidently.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">🔔</div>
-      <h3>Smart Reminders</h3>
-      <p>Automated reminders reduce no-shows. Doctors and hospitals see real-time updates to their schedules.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">🛡️</div>
-      <h3>Privacy First</h3>
-      <p>No medical records collected. Data encrypted at rest with AES-256 and in transit with TLS 1.2+.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ROLES -->
-<div class="roles-section">
-  <div class="roles-inner">
-    <div class="section-label">Platform Roles</div>
-    <h2>One platform, three powerful <em>perspectives</em></h2>
-    <p style="color:rgba(255,255,255,.6);font-weight:300;font-size:1.05rem;margin-bottom:0;">DocDoor serves patients, doctors, and hospital admins with tailored workflows and permissions.</p>
-    <div class="roles-grid">
-      <div class="role-card">
-        <span class="role-badge badge-patient">Patient</span>
-        <h3>Find &amp; Book Care</h3>
-        <ul>
-          <li>Search doctors by spec &amp; location</li>
-          <li>Book, reschedule, or cancel</li>
-          <li>Receive smart reminders</li>
-          <li>Leave reviews &amp; ratings</li>
-          <li>Bookmark favourite doctors</li>
-          <li>View full appointment history</li>
-        </ul>
-      </div>
-      <div class="role-card">
-        <span class="role-badge badge-doctor">Doctor</span>
-        <h3>Manage Your Practice</h3>
-        <ul>
-          <li>Aadhaar + council verified profile</li>
-          <li>Set availability &amp; slot limits</li>
-          <li>View patient bookings live</li>
-          <li>Work solo or within hospitals</li>
-          <li>Urgent &amp; follow-up booking flags</li>
-          <li>Aggregated ratings dashboard</li>
-        </ul>
-      </div>
-      <div class="role-card">
-        <span class="role-badge badge-hospital">Hospital Admin</span>
-        <h3>Operate at Scale</h3>
-        <ul>
-          <li>Hospital profile &amp; verification</li>
-          <li>Invite &amp; manage doctors</li>
-          <li>Slot capacity &amp; scheduling</li>
-          <li>Payments &amp; refund tracking</li>
-          <li>Walk-in &amp; prescription records</li>
-          <li>Audit logs &amp; admin actions</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how-it-works">
-  <div class="section-label">How It Works</div>
-  <h2>From registration to appointment in <em>minutes</em></h2>
-  <p>Getting started with DocDoor is designed to be friction-free for everyone on the platform.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h4>Create Your Account</h4>
-      <p>Sign up as a patient, doctor, or hospital admin. Verify your mobile and email to get started.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h4>Complete Verification</h4>
-      <p>Doctors complete Aadhaar and council verification. Hospitals submit registration details for review.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h4>Find &amp; Connect</h4>
-      <p>Patients search by location, specialisation, or availability and view verified doctor profiles.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <h4>Book &amp; Attend</h4>
-      <p>Confirm the slot, receive reminders, attend your appointment, and leave a review afterward.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<div class="about-section" id="about">
-  <div class="about-inner">
-    <div>
-      <div class="section-label">About Divya Tech</div>
-      <h2>IT solutions for <em>everyday life</em></h2>
-      <p>Divya Tech is a technology company focused on building practical, accessible software that solves real challenges people face every day in India.</p>
-      <p>DocDoor is our flagship product — a doctor appointment booking platform designed from the ground up for Indian patients, doctors, and hospitals, with a focus on verification, privacy, and e[...]
-    </div>
-    <div class="about-details">
-      <div class="about-item">
-        <div class="about-item-icon">📍</div>
-        <div class="about-item-text">
-          <strong>Address</strong>
-          <span>1 No Chota Hapjan, Makum, Tinsukia, Assam</span>
-        </div>
-      </div>
-      <div class="about-item">
-        <div class="about-item-icon">✉️</div>
-        <div class="about-item-text">
-          <strong>Email</strong>
-          <span><a href="mailto:info@divyatechsolutions.in" style="color:var(--green-light);">info@divyatechsolutions.in</a></span>
-        </div>
-      </div>
-      <div class="about-item">
-        <div class="about-item-icon">📞</div>
-        <div class="about-item-text">
-          <strong>Phone</strong>
-          <span><a href="tel:+918011861495" style="color:var(--green-light);">+91 80118 61495</a></span>
-        </div>
-      </div>
-      <div class="about-item">
-        <div class="about-item-icon">🌐</div>
-        <div class="about-item-text">
-          <strong>Website</strong>
-          <span><a href="https://divyatechsolutions.in" style="color:var(--green-light);">divyatechsolutions.in</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PRIVACY POLICY MODAL -->
-<div id="privacyModal" class="modal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closePrivacyModal()">&times;</button>
-    <div class="privacy-inner">
-      <div class="section-label">Legal</div>
-      <h2>Privacy Policy — DocDoor</h2>
-      <div class="privacy-dates">Effective Date: May 21, 2025 &nbsp;·&nbsp; Last Updated: May 21, 2026 &nbsp;·&nbsp; Operated by <strong>Divya Tech</strong></div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">📋</span> Introduction</h3>
-        <p>Welcome to <strong>DocDoor</strong>, operated by <strong>Divya Tech</strong>. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains [...]
-        <p>By using DocDoor, you agree to the collection and use of information as described in this policy. If you do not agree, please discontinue use of the app.</p>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">🗂️</span> 1. Information We Collect</h3>
-        <p>The information we collect depends on the role you use the app as.</p>
-
-        <h4><span class="role-tag role-all">All Users</span></h4>
-        <ul>
-          <li><strong>Full name, mobile number</strong> (primary login ID), and <strong>email address</strong></li>
-          <li><strong>Profile picture</strong> — optional, only if you choose to upload one</li>
-          <li><strong>State and district</strong> of residence; account status flags</li>
-          <li><strong>Device and login information</strong> — device type, OS version, login timestamps</li>
-          <li><strong>App usage data</strong> — screens visited, features used (for support and debugging)</li>
-          <li><strong>Push notification device token</strong> — for appointment and system alerts</li>
-          <li><strong>Aadhaar verification status</strong> — we only store a yes/no flag. Your Aadhaar number and images are processed by the UIDAI-verified provider and discarded by us.</li>
-        </ul>
-        <div class="note-box">We do <strong>not</strong> collect medical records, diagnoses, prescriptions, or any clinical health data.</div>
-
-        <h4><span class="role-tag role-patient">Patient</span></h4>
-        <ul>
-          <li>Appointment history (dates, times, assigned doctor or hospital, status, your notes)</li>
-          <li>Reviews and ratings you leave for doctors or hospitals</li>
-          <li>Bookmarks (doctors / hospitals you save for later)</li>
-          <li>Identity verification state (mobile OTP, email verification)</li>
-          <li>No-show / cancellation history (used for the freeze-on-repeat-no-show policy)</li>
-        </ul>
-
-        <h4><span class="role-tag role-doctor">Doctor</span></h4>
-        <ul>
-          <li>Medical council licence / registration number; specialisation; qualifications; years of experience; bio; languages spoken</li>
-          <li>Practice location: state, district, subdivision, clinic or hospital name, full address, consultation fee, working days and hours</li>
-          <li>Aadhaar QR code image (name and date of birth confirmation; stored for audit); medical council registration certificate; matching flags</li>
-          <li>Availability slots, daily slots, follow-up slots, urgent-booking flags</li>
-          <li>Appointments booked with you (patient name, phone, date/time, status, notes, review)</li>
-          <li>Aggregated statistics (average rating, total reviews, total appointments, verification badge)</li>
-        </ul>
-
-        <h4><span class="role-tag role-hospital">Hospital Admin</span></h4>
-        <ul>
-          <li>Hospital profile: name, description, phone, email, logo, full address, state, district, pincode, latitude/longitude, verification status</li>
-          <li>Hospital–doctor associations: invitations sent, per-doctor consultation fee overrides</li>
-          <li>Hospital availability: day-wise and date-range availability, slot duration, capacity, booking counts</li>
-          <li>Patient appointments, prescriptions, payments (amount, status, gateway, transaction ID, refund details), walk-in reservations</li>
-          <li>Aggregated hospital statistics and admin/impersonation logs</li>
-        </ul>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">⚙️</span> 2. Why We Collect It</h3>
-        <ul>
-          <li>Account creation, authentication, and role-based access control</li>
-          <li>Identity validation (mobile OTP, email verification, Aadhaar-based verification for doctors)</li>
-          <li>Helping patients find and book the right doctor or hospital</li>
-          <li>Appointment booking, management, reminders (SMS, email, push), and follow-ups</li>
-          <li>Processing payments, refunds, and consultation fees</li>
-          <li>Detecting fraud, abuse, and repeat no-shows</li>
-          <li>Customer and technical support</li>
-          <li>Internal analytics in aggregate form to improve the service</li>
-        </ul>
-        <div class="note-box">Your data is <strong>never</strong> used for advertising, behavioural profiling, or any commercial purpose unrelated to this service.</div>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">🔒</span> 3. How We Protect It</h3>
-        <ul>
-          <li>All data in transit is encrypted using <strong>TLS 1.2 or higher</strong></li>
-          <li>Data at rest is protected with <strong>AES-256 encryption</strong></li>
-          <li>Passwords are hashed using <strong>bcrypt with a unique salt</strong> — never stored in plain text</li>
-          <li>Access to authentication records is restricted to role-authorised internal services only</li>
-          <li>Identity verification images are stored encrypted and accessible only to the verification workflow and authorised reviewers</li>
-          <li>Regular security audits and vulnerability assessments are performed</li>
-        </ul>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">🤝</span> 4. Who We Share It With</h3>
-        <h4><span class="role-tag role-all">All Users</span></h4>
-        <ul>
-          <li><strong>SMS / email / push notification providers</strong> — receive your phone number, email, or device token solely to deliver alerts on our behalf</li>
-          <li><strong>Encrypted cloud infrastructure</strong> — data is stored in secure, encrypted cloud environments</li>
-        </ul>
-        <h4><span class="role-tag role-patient">Patient</span></h4>
-        <ul>
-          <li><strong>Your assigned doctor or hospital</strong> — receives your appointment details</li>
-          <li><strong>Other patients (anonymously)</strong> — see only anonymised statistics on doctor/hospital profiles</li>
-        </ul>
-        <h4><span class="role-tag role-doctor">Doctor</span></h4>
-        <ul>
-          <li><strong>Patients searching</strong> — see your public profile: name, specialisation, qualifications, languages, fee, working hours, average rating</li>
-          <li><strong>Hospital admin you associate with</strong> — sees your professional details and availability</li>
-        </ul>
-        <h4><span class="role-tag role-hospital">Hospital Admin</span></h4>
-        <ul>
-          <li><strong>Patients searching</strong> — see your public hospital profile: name, description, logo, address, verification status, associated doctors</li>
-          <li><strong>Doctors you invite</strong> — see your invitation notes and hospital name</li>
-        </ul>
-        <div class="note-box">We <strong>never</strong> sell, rent, trade, or otherwise disclose your personal data to any third party for their own purposes.</div>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">✅</span> 5. Your Rights</h3>
-        <ul>
-          <li><strong>View</strong> — request a copy of the data we hold about you</li>
-          <li><strong>Correct</strong> — request correction of inaccurate or incomplete data</li>
-          <li><strong>Export</strong> — receive your data in a portable format</li>
-          <li><strong>Freeze</strong> — your account may be temporarily frozen if repeated no-shows are detected. Strike history is tied to your phone number and persists across account deletion.</li>
-          <li><strong>Delete</strong> — request deletion of your account. Re-registration with the same credentials is restricted for <strong>30 days</strong>. Personally identifying details are remov[...]
-        </ul>
-        <div class="note-box">For <strong>doctors and hospital admins</strong>, deleting your account does not automatically remove appointment, prescription, payment, or review records you created — [...]
-        <p style="margin-top:16px;">To exercise any of these rights, go to <strong>Settings → Privacy</strong> in the app, or contact us at <a href="mailto:support.docdoor@gmail.com">support.docdoor@g[...]
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">🗓️</span> 6. Retention</h3>
-        <ul>
-          <li>Future appointments are cancelled immediately upon account deletion; the account is deactivated</li>
-          <li>Personally identifying information is permanently erased within <strong>30 days</strong> of deletion</li>
-          <li>Appointment history visible to the other party is retained as <em>"Deleted User"</em> after 30 days</li>
-          <li>Review ratings are retained anonymously; review comments are removed after <strong>30 days</strong></li>
-          <li>Prescriptions, payment records, and audit logs are retained for up to <strong>7 years</strong> as required by financial and medical regulations, with personal identifiers removed after 30 [...]
-          <li>System and access logs are purged after <strong>12 months</strong></li>
-        </ul>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">🔗</span> Third-Party Services</h3>
-        <ul>
-          <li><strong>Firebase Cloud Messaging (Google)</strong> — for push notifications</li>
-          <li><strong>SMS / email notification providers</strong> — for appointment reminders</li>
-          <li><strong>UIDAI-verified Aadhaar provider</strong> — for identity verification (doctors only); Aadhaar numbers and images are processed by the provider and discarded by us</li>
-          <li><strong>Encrypted cloud infrastructure</strong> — for secure data storage</li>
-          <li><strong>Google Play Services</strong> — for app distribution and device authentication</li>
-        </ul>
-        <p>We encourage you to review the privacy policies of these services. DocDoor is not responsible for the data practices of third-party providers.</p>
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">👶</span> Children's Privacy</h3>
-        <p>DocDoor is not intended for use by individuals under the age of <strong>13</strong>. We do not knowingly collect personal information from children. If you believe a child has provided us wit[...]
-      </div>
-
-      <div class="pp-card">
-        <h3><span class="pp-icon">🔄</span> Changes to This Policy</h3>
-        <p>We may update this Privacy Policy from time to time. When we do, we will update the <strong>Last Updated</strong> date at the top of this page. Continued use of DocDoor after changes constitu[...]
-      </div>
-
-      <div class="contact-box">
-        <h3>✉️ Contact Us</h3>
-        <p>Have questions about this Privacy Policy or your data? Reach out to us.</p>
-        <div class="contact-detail">
-          <p><strong>Divya Tech</strong></p>
-          <p>1 No Chota Hapjan, Makum, Tinsukia</p>
-          <p><a href="mailto:support.docdoor@gmail.com">support.docdoor@gmail.com</a></p>
-          <p><a href="mailto:info@divyatechsolutions.in">info@divyatechsolutions.in</a></p>
-          <p><a href="tel:+918011861495">+91 80118 61495</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 <strong>Divya Tech</strong>. All rights reserved. &nbsp;·&nbsp; DocDoor v1.1 &nbsp;·&nbsp;
-    <a href="mailto:info@divyatechsolutions.in">info@divyatechsolutions.in</a> &nbsp;·&nbsp;
-    <a href="tel:+918011861495">+91 80118 61495</a> &nbsp;·&nbsp;
-    <a onclick="openPrivacyModal()" style="cursor: pointer;">Privacy Policy</a>
-  </p>
-</footer>
 
 <script>
-  function openPrivacyModal() {
-    document.getElementById('privacyModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+  const mainEl    = document.getElementById('main-content');
+  const privacyEl = document.getElementById('privacy-view');
+
+  function showPrivacy(e) {
+    if (e) e.preventDefault();
+    mainEl.style.display    = 'none';
+    privacyEl.style.display = 'block';
+    privacyEl.classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.title = 'Privacy Policy — DocDoor';
   }
 
-  function closePrivacyModal() {
-    document.getElementById('privacyModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
+  function showMain(e, anchor) {
+    if (e) e.preventDefault();
+    privacyEl.style.display = 'none';
+    privacyEl.classList.remove('visible');
+    mainEl.style.display    = 'block';
+    document.title = 'Divya Tech — DocDoor';
+    if (anchor) {
+      const target = document.querySelector(anchor);
+      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 50);
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
-
-  // Close modal when clicking outside of modal-content
-  document.getElementById('privacyModal').addEventListener('click', function(event) {
-    if (event.target === this) {
-      closePrivacyModal();
-    }
-  });
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      closePrivacyModal();
-    }
-  });
 </script>
 
 </body>
